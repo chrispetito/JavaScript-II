@@ -102,9 +102,9 @@ console.log(bibArray);
 // Problem 3
 // Calculate the total donations and log the average per runner.
 let totalDonations = runners.reduce(function(accumulator, currentValue) {
-    return (accumulator + currentValue.donation);
+    return Math.round(accumulator + currentValue.donation/runners.length);
 }, 0);
-console.log(totalDonations/runners.length);
+console.log(totalDonations);
 
 
 // Problem 4
@@ -115,8 +115,16 @@ let alphabetArr = runners.map(function(currentValue) {
 console.log(alphabetArr.sort());
 
 // Problem 5 
-// Make an array that is composed of all the participating companies in alphabetical order.
-let companyARR = runners.map(function(currentValue) {
-    return currentValue.company_name;
+// Make an array that is composed of all the participating runners associated with Skinix.
+let companyArr = runners.filter(function(currentValue) {
+    return currentValue.company_name === 'Skinix';
+})
+console.log(companyArr);
+
+// Problem 6 
+// Return an array of all of the runners' email addresses in alphabetical order.
+let emailArr = [];
+runners.forEach(function(currentValue) {
+    emailArr.push(currentValue.email);
 });
-console.log(companyARR.sort());
+console.log(emailArr.sort());

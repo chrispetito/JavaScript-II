@@ -68,6 +68,21 @@ function contains(item, list, cb) {
 contains ('Gum', items, function(contains){
   console.log(contains);
 });
+contains ('yo-yo', items, function(contains){
+  console.log(contains);
+});
+contains ('Notebook', items, function(contains){
+  console.log(contains);
+});
+contains ('Pencil', items, function(contains){
+  console.log(contains);
+});
+contains ('apple', items, function(contains){
+  console.log(contains);
+});
+contains ('backpack', items, function(contains){
+  console.log(contains);
+});
 
 /* STRETCH PROBLEM */
 
@@ -76,3 +91,4 @@ function removeDuplicates(array, cb) {
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
 }
+
