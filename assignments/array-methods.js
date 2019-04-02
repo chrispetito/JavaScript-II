@@ -100,7 +100,7 @@ let bibArray = runners.map(function(currentValue) {
 console.log(bibArray);
 
 // Problem 3
-// Calculate the total number of donations and log the average per runner.
+// Calculate the total donations and log the average per runner.
 let totalDonations = runners.reduce(function(accumulator, currentValue) {
     return (accumulator + currentValue.donation);
 }, 0);
@@ -113,3 +113,10 @@ let alphabetArr = runners.map(function(currentValue) {
     return currentValue.last_name;
 });
 console.log(alphabetArr.sort());
+
+// Problem 5 
+// Make an array that is composed of all the participating companies in alphabetical order.
+let companyARR = runners.map(function(currentValue) {
+    return currentValue.company_name;
+});
+console.log(companyARR.sort());
