@@ -1,6 +1,19 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
+function firstFunction() {
+  const newVar = 'TEST';
+  console.log(`This is a ${newVar}`);
+  
+  function secondFunction() {
+    console.log (`This is the second ${newVar}`);
 
+    function thirdFunction() {
+      console.log(`This is the third ${newVar}`);
+    } thirdFunction();
+  }secondFunction();
+};
+
+console.log(firstFunction());
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
