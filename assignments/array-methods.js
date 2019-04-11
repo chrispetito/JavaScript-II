@@ -56,28 +56,75 @@ const runners = [{"id":1,"first_name":"Charmain","last_name":"Seiler","email":"c
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs.  Combine both the first and last names into a new array called fullName. 
 let fullName = [];
+runners.forEach(function(currentValue) {
+	fullName.push(`${currentValue.first_name} ${currentValue.last_name}`);
+});
 console.log(fullName);
 
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runner's first names converted to uppercase because the director BECAME DRUNK WITH POWER. Convert each first name into all caps and log the result
-let allCaps = [];
+let allCaps = runners.map(function(currentValue) {
+    return currentValue.first_name.toUpperCase();
+});
 console.log(allCaps); 
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue.  Get a list of runners with large sized shirts so they can choose a different size. Return an array named largeShirts that contains information about the runners that have a shirt size of L and log the result
-let largeShirts = [];
+let largeShirts = runners.filter(function(currentValue) {
+    return currentValue.shirt_size === 'L';
+});
 console.log(largeShirts);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations into a ticketPriceTotal array and log the result
-let ticketPriceTotal = [];
+let ticketPriceTotal = runners.reduce(function(accumulator, currentValue) {
+    return accumulator + currentValue.donation;
+}, 0);
 console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+// Create a new array with a list of gold sponsors (donation of 100 or more).
+let goldSponsors = runners.filter(function(currentValue) {
+    return currentValue.donation >= 100;
+});
+console.log(goldSponsors);
 
 // Problem 2
+// Create a new array with the runner ID number and initials for their bibs.
+let bibArray = runners.map(function(currentValue) {
+    return `${currentValue.first_name[0]}${currentValue.last_name[0]} ${currentValue.id}`;
+});
+console.log(bibArray);
 
 // Problem 3
+// Calculate the total donations and log the average per runner.
+let totalDonations = runners.reduce(function(accumulator, currentValue) {
+    return Math.round(accumulator + currentValue.donation/runners.length);
+}, 0);
+console.log(totalDonations);
+
+
+// Problem 4
+// Create and log a new array that alphabetizes the runners' last name for check-in purposes.
+let alphabetArr = runners.map(function(currentValue) {
+    return currentValue.last_name;
+});
+console.log(alphabetArr.sort());
+
+// Problem 5 
+// Make an array that is composed of all the participating runners associated with Skinix.
+let companyArr = runners.filter(function(currentValue) {
+    return currentValue.company_name === 'Skinix';
+})
+console.log(companyArr);
+
+// Problem 6 
+// Return an array of all of the runners' email addresses in alphabetical order.
+let emailArr = [];
+runners.forEach(function(currentValue) {
+    emailArr.push(currentValue.email);
+});
+console.log(emailArr.sort());
